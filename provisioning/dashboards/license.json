@@ -37,6 +37,7 @@
       "fieldConfig": {
         "defaults": {
           "color": { "mode": "fixed", "fixedColor": "text" },
+          "displayName": "${__field.name}",
           "mappings": [],
           "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
         }
@@ -53,6 +54,7 @@
       "fieldConfig": {
         "defaults": {
           "color": { "mode": "fixed", "fixedColor": "text" },
+          "displayName": "${__field.name}",
           "mappings": [],
           "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
         }
@@ -69,6 +71,7 @@
       "fieldConfig": {
         "defaults": {
           "color": { "mode": "fixed", "fixedColor": "text" },
+          "displayName": "${__field.name}",
           "mappings": [],
           "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
         }
@@ -93,7 +96,9 @@
         "defaults": {
           "color": { "mode": "thresholds" },
           "min": 0,
+          "max": 50,
           "unit": "short",
+          "displayName": "Distributed Agents Used",
           "thresholds": {
             "mode": "percentage",
             "steps": [
@@ -108,13 +113,10 @@
       "id": 10,
       "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
       "targets": [
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_distributed_used", "refId": "A" },
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_agents_distributed_max", "refId": "B" }
+        { "aggregate": "sum", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_distributed_used", "refId": "A" }
       ],
       "title": "Distributed Agents",
-      "transformations": [
-        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
-      ],
+      "transformations": [],
       "type": "gauge"
     },
     {
@@ -123,7 +125,9 @@
         "defaults": {
           "color": { "mode": "thresholds" },
           "min": 0,
+          "max": 10000,
           "unit": "short",
+          "displayName": "Monthly Executions Used",
           "thresholds": {
             "mode": "percentage",
             "steps": [
@@ -138,13 +142,10 @@
       "id": 11,
       "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
       "targets": [
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_monthly_executions_used", "refId": "A" },
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_monthly_executions_max", "refId": "B" }
+        { "aggregate": "sum", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_monthly_executions_used", "refId": "A" }
       ],
       "title": "Monthly Executions",
-      "transformations": [
-        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
-      ],
+      "transformations": [],
       "type": "gauge"
     },
     {
@@ -153,7 +154,9 @@
         "defaults": {
           "color": { "mode": "thresholds" },
           "min": 0,
+          "max": 1,
           "unit": "short",
+          "displayName": "z/OS Agents Used",
           "thresholds": {
             "mode": "percentage",
             "steps": [
@@ -168,13 +171,10 @@
       "id": 12,
       "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
       "targets": [
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_zos_used", "refId": "A" },
-        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_agents_zos_max", "refId": "B" }
+        { "aggregate": "sum", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_zos_used", "refId": "A" }
       ],
       "title": "z/OS Agents",
-      "transformations": [
-        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
-      ],
+      "transformations": [],
       "type": "gauge"
     },
     {
@@ -241,5 +241,5 @@
   "timezone": "browser",
   "title": "UAC License",
   "uid": "stonebranch-license",
-  "version": 1
+  "version": 6
 }

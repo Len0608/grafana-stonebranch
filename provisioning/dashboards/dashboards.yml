@@ -8,6 +8,6 @@ providers:
     updateIntervalSeconds: 30
     allowUiUpdates: true
     options:
-      path: /home/len/project/AI/grafana plugin/libellecov-stonebranchuac-datasource/provisioning/dashboards
+      path: /home/len/project/AI/grafana plugin/stonebranch-stonebranchuac-datasource/provisioning/dashboards
       foldersFromFilesStructure: false
     folder: Stonebranch UAC
