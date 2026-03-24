@@ -48,6 +48,7 @@ ci/
 # Plugin packages
 *.zip
 *.md5
-
+.claude
+CLAUDE.*
 # Provisioning credentials (use datasources.yml.example instead)
 provisioning/datasources/datasources.yml

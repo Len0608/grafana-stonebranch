@@ -113,7 +113,9 @@
       "transformations": [
         { "id": "labelsToFields", "options": { "keepLabels": ["agent_id"] } },
         { "id": "merge", "options": {} },
-        { "id": "organize", "options": { "excludeByName": { "Time": true }, "renameByName": { "agent_id": "Agent Name", "Value": "Status" } } }
+        { "id": "organize", "options": { "excludeByName": { "Time": true }, "indexByName": { "agent_id": 0, "Value": 1 }, "renameByName": { "agent_id": "Agent Name", "Value": "Status" } } },
+        { "id": "transpose", "options": {} },
+        { "id": "organize", "options": { "renameByName": { "Field": "Agent Name", "1": "Status" } } }
       ],
       "type": "table"
     },
@@ -172,5 +174,5 @@
   "timezone": "browser",
   "title": "UAC Overview",
   "uid": "stonebranch-uac-overview",
-  "version": 10
+  "version": 13
 }
