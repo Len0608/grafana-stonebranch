@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: Stonebranch UAC
+    type: libellecov-stonebranchuac-datasource
+    access: proxy
+    url: 'https://your-uac-instance.example.com'
+    isDefault: true
+    orgId: 1
+    version: 1
+    editable: true
+    jsonData:
+      url: 'https://your-uac-instance.example.com'
+      authType: basic       # or 'pat' for Personal Access Token
+      username: your-username
+    secureJsonData:
+      authorizationHeader: 'Basic <base64-encoded-user:password>'

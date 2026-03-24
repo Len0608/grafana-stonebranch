@@ -1,0 +1,245 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_STONEBRANCH_UAC",
+      "label": "Stonebranch UAC",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "libellecov-stonebranchuac-datasource",
+      "pluginName": "Stonebranch UAC"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "libellecov-stonebranchuac-datasource",
+      "name": "Stonebranch UAC",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": { "list": [] },
+  "description": "Stonebranch Universal Controller — license consumption and limits",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "License Info",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "text" },
+          "mappings": [],
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
+        }
+      },
+      "gridPos": { "h": 3, "w": 6, "x": 0, "y": 1 },
+      "id": 1,
+      "options": { "colorMode": "none", "graphMode": "none", "justifyMode": "center", "reduceOptions": { "calcs": ["lastNotNull"] }, "textMode": "name" },
+      "targets": [{ "aggregate": "none", "labelFilters": [], "legendFormat": "{{customer}}", "metric": "uc_license_agents_distributed_max", "refId": "A" }],
+      "title": "Customer",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "text" },
+          "mappings": [],
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
+        }
+      },
+      "gridPos": { "h": 3, "w": 6, "x": 6, "y": 1 },
+      "id": 2,
+      "options": { "colorMode": "none", "graphMode": "none", "justifyMode": "center", "reduceOptions": { "calcs": ["lastNotNull"] }, "textMode": "name" },
+      "targets": [{ "aggregate": "none", "labelFilters": [], "legendFormat": "{{environment}}", "metric": "uc_license_agents_distributed_max", "refId": "A" }],
+      "title": "Environment",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "fixed", "fixedColor": "text" },
+          "mappings": [],
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "text", "value": null }] }
+        }
+      },
+      "gridPos": { "h": 3, "w": 6, "x": 12, "y": 1 },
+      "id": 3,
+      "options": { "colorMode": "none", "graphMode": "none", "justifyMode": "center", "reduceOptions": { "calcs": ["lastNotNull"] }, "textMode": "name" },
+      "targets": [{ "aggregate": "none", "labelFilters": [], "legendFormat": "{{expiry_date}}", "metric": "uc_license_agents_distributed_max", "refId": "A" }],
+      "title": "Expires",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 4 },
+      "id": 101,
+      "title": "License Usage",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "min": 0,
+          "unit": "short",
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 70 },
+              { "color": "red", "value": 90 }
+            ]
+          }
+        }
+      },
+      "gridPos": { "h": 10, "w": 8, "x": 0, "y": 5 },
+      "id": 10,
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
+      "targets": [
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_distributed_used", "refId": "A" },
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_agents_distributed_max", "refId": "B" }
+      ],
+      "title": "Distributed Agents",
+      "transformations": [
+        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "min": 0,
+          "unit": "short",
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 70 },
+              { "color": "red", "value": 90 }
+            ]
+          }
+        }
+      },
+      "gridPos": { "h": 10, "w": 8, "x": 8, "y": 5 },
+      "id": 11,
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
+      "targets": [
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_monthly_executions_used", "refId": "A" },
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_monthly_executions_max", "refId": "B" }
+      ],
+      "title": "Monthly Executions",
+      "transformations": [
+        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "min": 0,
+          "unit": "short",
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 70 },
+              { "color": "red", "value": 90 }
+            ]
+          }
+        }
+      },
+      "gridPos": { "h": 10, "w": 8, "x": 16, "y": 5 },
+      "id": 12,
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "showThresholdLabels": false, "showThresholdMarkers": true },
+      "targets": [
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_agents_zos_used", "refId": "A" },
+        { "aggregate": "none", "labelFilters": [], "legendFormat": "Max", "metric": "uc_license_agents_zos_max", "refId": "B" }
+      ],
+      "title": "z/OS Agents",
+      "transformations": [
+        { "id": "configFromData", "options": { "configRefId": "B", "mappings": [{ "fieldName": "Max", "handlerKey": "max" }] } }
+      ],
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 15 },
+      "id": 102,
+      "title": "Unlimited Licenses",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }] },
+          "mappings": [{ "options": { "0": { "text": "0 (Unlimited)", "color": "green", "index": 0 } }, "type": "value" }]
+        }
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 16 },
+      "id": 20,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "center", "reduceOptions": { "calcs": ["lastNotNull"] }, "textMode": "auto" },
+      "targets": [{ "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_task_definitions_used", "refId": "A" }],
+      "title": "Task Definitions",
+      "description": "Unlimited license — no cap on task definitions",
+      "type": "stat"
+    },
+    {
+      "datasource": { "type": "libellecov-stonebranchuac-datasource", "uid": "${DS_STONEBRANCH_UAC}" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }] },
+          "mappings": [{ "options": { "0": { "text": "0 (Unlimited)", "color": "green", "index": 0 } }, "type": "value" }]
+        }
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 8, "y": 16 },
+      "id": 21,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "center", "reduceOptions": { "calcs": ["lastNotNull"] }, "textMode": "auto" },
+      "targets": [{ "aggregate": "none", "labelFilters": [], "legendFormat": "Used", "metric": "uc_license_cluster_nodes_used", "refId": "A" }],
+      "title": "Cluster Nodes",
+      "description": "Unlimited license — no cap on cluster nodes",
+      "type": "stat"
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 36,
+  "tags": ["stonebranch", "uac", "license"],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "hide": 0,
+        "includeAll": false,
+        "name": "DS_STONEBRANCH_UAC",
+        "options": [],
+        "query": "libellecov-stonebranchuac-datasource",
+        "refresh": 1,
+        "type": "datasource"
+      }
+    ]
+  },
+  "time": { "from": "now-1h", "to": "now" },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "UAC License",
+  "uid": "stonebranch-license",
+  "version": 1
+}

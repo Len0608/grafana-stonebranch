@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "datasource",
+  "name": "Stonebranch UAC",
+  "id": "libellecov-stonebranchuac-datasource",
+  "metrics": true,
+  "backend": false,
+  "routes": [
+    {
+      "path": "metrics",
+      "url": "{{ .JsonData.url }}/resources/metrics",
+      "headers": [
+        {
+          "name": "Authorization",
+          "content": "{{ .SecureJsonData.authorizationHeader }}"
+        }
+      ]
+    }
+  ],
+  "info": {
+    "description": "Monitor Stonebranch Universal Controller metrics in Grafana with pre-built dashboards and integrated UAC-aware features.",
+    "author": {
+      "name": "Stonebranch"
+    },
+    "keywords": ["datasource", "stonebranch", "uac", "prometheus", "monitoring", "workload automation"],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Stonebranch Documentation",
+        "url": "https://docs.stonebranch.com"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=10.0.0",
+    "plugins": []
+  }
+}

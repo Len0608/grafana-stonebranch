@@ -1,0 +1,13 @@
+apiVersion: 1
+
+providers:
+  - name: Stonebranch UAC Dashboards
+    orgId: 1
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true
+    options:
+      path: /home/len/project/AI/grafana plugin/libellecov-stonebranchuac-datasource/provisioning/dashboards
+      foldersFromFilesStructure: false
+    folder: Stonebranch UAC
