@@ -33,7 +33,11 @@
         "url": "https://docs.stonebranch.com"
       }
     ],
-    "screenshots": [],
+    "screenshots": [
+      { "name": "UAC Overview", "path": "img/uc-overview-dashboard.png" },
+      { "name": "Task Execution", "path": "img/task-execution-dashboard.png" },
+      { "name": "License Dashboard", "path": "img/license-dashboard.png" }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
