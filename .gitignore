@@ -48,6 +48,8 @@ ci/
 # Plugin packages
 *.zip
 *.md5
+!libellecov-stonebranchuac-datasource-1.0.0.zip
+!libellecov-stonebranchuac-datasource-1.0.0.zip.md5
 .claude
 CLAUDE.*
 .config/
