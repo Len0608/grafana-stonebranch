@@ -52,6 +52,5 @@ ci/
 !libellecov-stonebranchuac-datasource-1.0.0.zip.md5
 .claude
 CLAUDE.*
-.config/
 # Provisioning credentials (use datasources.yml.example instead)
 provisioning/datasources/datasources.yml
