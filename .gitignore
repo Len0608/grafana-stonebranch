@@ -45,11 +45,9 @@ ci/
 
 .eslintcache
 
-# Plugin packages
+# Plugin packages — built by CI, published as release assets
 *.zip
 *.md5
-!libellecov-stonebranchuac-datasource-1.0.0.zip
-!libellecov-stonebranchuac-datasource-1.0.0.zip.md5
 .claude
 CLAUDE.*
 # Provisioning credentials (use datasources.yml.example instead)
