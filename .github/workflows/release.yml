@@ -23,5 +23,8 @@ jobs:
 
       - uses: grafana/plugin-actions/build-plugin@build-plugin/v1.0.2
         with:
-          policy_token: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+          # policy_token omitted intentionally for initial submission.
+          # Community-level signing requires Grafana catalog approval first.
+          # After approval: uncomment and set GRAFANA_ACCESS_POLICY_TOKEN secret.
+          # policy_token: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
           attestation: true
